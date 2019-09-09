@@ -1,0 +1,17 @@
+This file is the specification for the object format to be used.
+Object definitions are taken from the files in this folder
+
+File names:
+center
+earth
+jupiter
+saturn
+uranus
+neptune
+mars
+venus
+mercury
+belt
+others
+
+Each file can contain data for multiple bodies, except for the center file, which always holds data for the central body of the system
