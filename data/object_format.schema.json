@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "body",
+	"type": "object",
+	"description": "Any solar system body.",
+	"properties": {
+		"mass": {
+			"description": "Mass of a body, in kg",
+			"type": "integer",
+			"minimum": 0
+		},
+		"radius": {
+			"description": "Radius of a body, in km",
+			"type": "integer",
+			"minimum": 0
+		},
+		"params": {
+			"description": "Orbital parameters: eccentricity, semimajor axis (km), inclination, longitude of the ascending node, argument of periapsis, true anomaly.",
+			type: "array",
+			"items": {
+				"type": "integer"
+			},
+			"maxItems": 6,
+			"minItems": 6
+		},
+		"satellites": {
+			"description": "Bodies orbiting this one.",
+			"type": "array",
+			"items": { "$ref": "#/object_format.schema.json" },
+			"minItems": 1
+		}
+	},
+	"required": [ "mass", "radius", "params" ]
+}
