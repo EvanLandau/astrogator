@@ -1,5 +1,5 @@
 # astrogator
-Software for performing astrogation.
+Software for performing astrogation. This is not intended for actual spaceflight.
 
 Project Baseline Goals:
 1. N-body physics, supporting lagrangian points, gravitational assists, etc.
