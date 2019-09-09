@@ -1,5 +1,5 @@
 This file is the specification for the object format to be used.
-Object definitions are taken from the files in this folder, except for the central body, which is included in the file "center", which has no file type. On line one the mass is listed. On line two the radius is listed.
+Object definitions are taken from the files in this folder, except for the central body, which is included in the file "center", which has no file type. On line one the mass is listed in kilograms. On line two the radius is listed in kilometers.
 
 File names:
 earth.json
