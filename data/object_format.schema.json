@@ -16,7 +16,7 @@
 		},
 		"params": {
 			"description": "Orbital parameters: eccentricity, semimajor axis (km), inclination, longitude of the ascending node, argument of periapsis, time of periapsis passage, orbit time.",
-			type: "array",
+			"type": "array",
 			"items": {
 				"type": "integer"
 			},
