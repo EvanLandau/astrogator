@@ -15,13 +15,13 @@
 			"minimum": 0
 		},
 		"params": {
-			"description": "Orbital parameters: eccentricity, semimajor axis (km), inclination, longitude of the ascending node, argument of periapsis, true anomaly.",
+			"description": "Orbital parameters: eccentricity, semimajor axis (km), inclination, longitude of the ascending node, argument of periapsis, time of periapsis passage, orbit time.",
 			type: "array",
 			"items": {
 				"type": "integer"
 			},
-			"maxItems": 6,
-			"minItems": 6
+			"maxItems": 7,
+			"minItems": 7
 		},
 		"satellites": {
 			"description": "Bodies orbiting this one.",
