@@ -5,7 +5,8 @@ class Body: #Class representing all astronomical bodies.
     velocity = [0, 0, 0] #Velocity x, y, z (in AU/day)
     mass = 0
     IAU_number = -1
-    def __init__(self, number, mass, x, y, z, dx, dy, dz):
+    def __init__(self, name, number, mass, x, y, z, dx, dy, dz):
+        self.name = name
         self.IAU_number = number
         self.position = [x, y, z]
         self.velocity = [dx, dy, dz]
