@@ -11,7 +11,5 @@ def download_all(time):
         body_file = open(os.path.join('data', filename), 'r')
         for line in body_file:
             line = line.split()
-            print("Downloading " + line[0])
+            #print("Downloading " + line[0]) #Debug print statment for each body downloaded
             bodies.append(downloader.download_Body(line[0], line[1], time=time,mass=line[2]))
-        
-download_all(58850.92153)
