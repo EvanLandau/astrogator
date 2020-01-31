@@ -3,6 +3,7 @@ import simulator
 import downloader
 import argparse
 import datetime
+import maneuver
 
 def current_time_julian(): #Thank you to Code Highlights https://code-highlights.blogspot.com/2013/01/julian-date-in-python.html
     my_date = datetime.datetime.now() #Gets current date and time
@@ -22,6 +23,8 @@ def main(): #Main function
     #Basic setup
     time = args.starttime
     #Load maneuver file & maneuvers
+    #TODO: Get ship location & info and create body file
+    #TODO: Produce maneuver list "manuevers"
     #Load body files
     body_list = downloader.download_all(time)
     #Simulation loop
