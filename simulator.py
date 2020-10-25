@@ -18,6 +18,8 @@ def simulate(bodies, step_length): #Body array and step length, in seconds
         #Put code for thruster burns here when working with spacecraft (this may require some minor tweaks to earlier code)
     for i in bodies: #Integrate force/acceleration to create velocity
         acceleration = i.force/i.mass
+        if isinstance(i, bodies.Ship): #Calculate frames for all ship-type bodies (this is done here because acceleration is known here)
+            i.calc_frame(acceleration)
         i.position += i.velocity * step_length + acceleration / 2 * step_length ** 2 #d = 0.5at^2 + vt + d
         i.velocity += acceleration * step_length
         energy += numpy.linalg.norm(i.velocity) ** 2 * i.mass/2 #Kinetic energy added
