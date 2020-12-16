@@ -6,7 +6,7 @@ import estimation_tools
 #Uses astroquery
 from astroquery.jplhorizons import Horizons
 
-def download_Body(name, number, time, mass = -1):
+def download_Body(name, number, time, mass = -1) -> bodies.Body:
     majorbody = (mass != -1) #Tests if a mass value is provided, and if it is, marks body as major
     if majorbody: #Creates actual body in astroquery
         working_body = Horizons(id=str(number), epochs=time, id_type='majorbody')
@@ -17,8 +17,8 @@ def download_Body(name, number, time, mass = -1):
         mass = estimation_tools.estimate_mass(body_table['H'][0], 'x')
     return bodies.Body(name, number, float(mass), float(body_table['x'][0]), float(body_table['y'][0]), float(body_table['z'][0]), float(body_table['vx'][0]), float(body_table['vy'][0]), float(body_table['vz'][0]))
 
-def download_all(time):
-    bodies = [] #List of bodies- what is returned (this will be quite large)
+def download_all(time) -> list:
+    bodies = {} #List of bodies- what is returned (this will be quite large)
     manifest = open(os.path.join('data', 'object_files'), 'r') #Most of the code here is just to get a relative filepath
     to_read = manifest.read().split() #Gets list of files to read from
     manifest.close()
@@ -27,5 +27,6 @@ def download_all(time):
         for line in body_file:
             line = line.split()
             #print("Downloading " + line[0]) #Debug print statment for each body downloaded
-            bodies.append(download_Body(line[0], line[1], time=time,mass=line[2]))
+            downloaded = download_Body(line[0], line[1], time=time,mass=line[2])
+            bodies.update({downloaded.id_number:downloaded})
     return bodies

@@ -3,7 +3,7 @@ G = 6.67300E-11 #Gravitational constant
 import bodies
 import numpy
 
-def simulate(bodies, step_length): #Body array and step length, in seconds
+def simulate(bodies, maneuver_list, step_length): #Body array and step length, in seconds
     energy = 0 #Calculates kinetic energy of the system
     for i in bodies: #Calculate sum of gravitational forces on each object
         i.force = numpy.array([0.0, 0.0, 0.0])
@@ -23,5 +23,5 @@ def simulate(bodies, step_length): #Body array and step length, in seconds
         i.position += i.velocity * step_length + acceleration / 2 * step_length ** 2 #d = 0.5at^2 + vt + d
         i.velocity += acceleration * step_length
         energy += numpy.linalg.norm(i.velocity) ** 2 * i.mass/2 #Kinetic energy added
-    print(energy)
+    print(energy) #This is used to check if the system gains or loses kinetic energy, and is basically a debug statement
     return bodies

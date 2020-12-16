@@ -8,7 +8,19 @@ saturn
 outer_system (Uranus+)
 
 Each file contains data for several bodies - one on each line. The bodies are described in the following format:
-[Name] [ID] [Mass]
+Name ID Mass
 
 For example, Earth is
 Earth 399 5.97237e24
+
+Ships (any body that can have maneuvers/undergo thrust) are defined as follows:
+Name Mass Parent_ID e a M i omega Omega
+
+The name is the name of the ship, which should be one word (separated by spaces), and the mass is the mass (can be written out normally or in scientific notation as above)
+Parent_ID is the ID of the parent body, as used in HORIZONS (see https://ssd.jpl.nasa.gov/?horizons_doc#mb).
+e, a, M, i, omega, and Omega are the orbital elements of the ship in orbit around its parent, standing for eccentricity, semi-major axis, mean anomaly, inclination, argument of periapsis, and longitude of the ascending node, respectively.
+
+The ship section begins with #SHIP and ends with #ENDSHIP, and the maneuver section begins with #MANEUVER and ends with #ENDMANEUVER. These data blocks should be on their own lines.
+
+Maneuvers for the aforementioned ships are defined as follows:
+Ship_Name Start_Time Duration ExhaustVel Mass_Flow Direction
