@@ -58,7 +58,7 @@ def main(): #Main function
         print("Simulation end time not set.") #End code to be removed
     while True:
         time += args.steplength
-        body_list = simulator.simulate(body_dict, maneuver_list args.steplength)
+        body_list = simulator.simulate(body_dict, maneuver_list, args.steplength)
         #TODO: Include spacecraft maneuvers
         print(time)
         if time >= args.endtime:
