@@ -16,3 +16,15 @@ class Maneuver:
         self.length = length
         self.body_id = body_id
         self.thrust = mass_flow * exhaustvel
+    
+    #Stuff for comparisons, based on time
+    def __lt__(self, other):
+        if other.time < self.time:
+            return True
+        else:
+            return False
+    def __gt__(self, other):
+        if other.time > self.time:
+            return True
+        else:
+            return False

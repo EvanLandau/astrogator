@@ -24,3 +24,11 @@ The ship section begins with #SHIP and ends with #ENDSHIP, and the maneuver sect
 
 Maneuvers for the aforementioned ships are defined as follows:
 Ship_Name Start_Time Duration ExhaustVel Mass_Flow Direction
+
+An example of this is:
+Argos 2460676.50000 100 9000 20 [1,0,0]
+
+The start time is in julian date, and the duration is in seconds.
+The exhaust velocity is in meters per second and the mass flow in kilograms per second.
+The direction is in the following format: [T, N, B]
+This is a directional vector in the TNB frame,
